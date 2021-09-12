@@ -28,6 +28,7 @@ public class User {
         this.postalcode = postalcode;
         this.balance=balance;
     }
+
     public void addToCart(Product p){
         if(cartIndex<5) {
             p.setUncommitedQuantity(p.getUncommitedQuantity()-1);
@@ -50,7 +51,11 @@ public class User {
         }
         cartIndex--;
     }
-
+    public void release(){
+        for(int i=0; i<cartIndex;i++){
+            removeByIndex(i);
+        }
+    }
     public void printCartInfo(){
         System.out.println("there are " +cartIndex + " items in your cart:" );
         for(int i=0; i<cartIndex; i++){
@@ -63,10 +68,6 @@ public class User {
             balance-=sum;
             for(int i=0;i<cartIndex;i++){
                 cart[i].setQuantity(cart[i].getUncommitedQuantity());
-            }
-            for(int i=cartIndex;i<5;i++){
-                if(cart[i]!=null)
-                    removeByIndex(i);
             }
         }else{
             System.out.println("you don't have enough credit");

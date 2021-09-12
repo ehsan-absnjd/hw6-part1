@@ -9,6 +9,13 @@ public class Product {
     private int quantity;
     private int uncommitedQuantity;
 
+    public Product(Type type, int price, int quantity) {
+        this.type = type;
+        this.price = price;
+        this.quantity = quantity;
+        this.uncommitedQuantity=quantity;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
