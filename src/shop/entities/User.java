@@ -28,7 +28,9 @@ public class User {
         this.postalcode = postalcode;
         this.balance=balance;
     }
-
+    public void addBalance(int amount){
+        this.balance+=amount;
+    }
     public void addToCart(Product p){
         if(cartIndex<5) {
             p.setUncommitedQuantity(p.getUncommitedQuantity()-1);

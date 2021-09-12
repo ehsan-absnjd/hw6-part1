@@ -18,7 +18,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product{" +
+        return "{" +
                 "id=" + id +
                 ", type=" + type +
                 ", price=" + price +

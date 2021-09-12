@@ -37,8 +37,10 @@ public class Scanner {
         while(true) {
             st = sc.next();
             if(st.indexOf("@")>0 &&
+                    st.indexOf("@") == st.lastIndexOf("@") &&
                     st.lastIndexOf(".") >st.indexOf("@")+1 &&
-                    st.lastIndexOf(".") <st.length()-1 )
+                    st.lastIndexOf(".") <st.length()-1  &&
+                    st.indexOf("." , st.indexOf("@"))==st.lastIndexOf("."))
                 break;
             System.out.println("invalid email, try again");
         }
