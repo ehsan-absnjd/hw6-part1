@@ -55,8 +55,9 @@ public class User {
     }
     public void release(){
         for(int i=0; i<cartIndex;i++){
-            removeByIndex(i);
+            cart[i].setUncommitedQuantity(cart[i].getQuantity());
         }
+        cartIndex=0;
     }
     public void printCartInfo(){
         System.out.println("there are " +cartIndex + " items in your cart:" );
@@ -71,6 +72,7 @@ public class User {
             for(int i=0;i<cartIndex;i++){
                 cart[i].setQuantity(cart[i].getUncommitedQuantity());
             }
+            cartIndex=0;
         }else{
             System.out.println("you don't have enough credit");
         }
@@ -78,7 +80,7 @@ public class User {
     private int getTotalFee(){
         int sum=0;
         for(int i=0; i<cartIndex; i++){
-            sum= cart[i].getPrice();
+            sum+= cart[i].getPrice();
         }
         return sum;
     }
@@ -93,13 +95,7 @@ public class User {
         return -1;
     }
 
-    public Product[] getCart() {
-        return cart;
-    }
 
-    public int getCartIndex() {
-        return cartIndex;
-    }
 
     public String getUsername() {
         return username;
@@ -109,35 +105,4 @@ public class User {
         return password;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getProvince() {
-        return province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public String getPostalcode() {
-        return postalcode;
-    }
 }
