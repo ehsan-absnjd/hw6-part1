@@ -46,4 +46,12 @@ public class Scanner {
         }
         return st;
     }
+    public String getPassword(){
+        String input=getString();
+        while(input.length()<8){
+            System.out.println("password must be at least 8 characters");
+            input=getString();
+        }
+        return input;
+    }
 }
