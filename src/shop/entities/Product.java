@@ -42,10 +42,6 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Type getType() {
-        return type;
-    }
-
     public int getPrice() {
         return price;
     }

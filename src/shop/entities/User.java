@@ -28,6 +28,11 @@ public class User {
         this.postalcode = postalcode;
         this.balance=balance;
     }
+
+    public int getBalance() {
+        return balance;
+    }
+
     public void addBalance(int amount){
         this.balance+=amount;
     }
@@ -47,7 +52,8 @@ public class User {
         }
     }
     private void removeByIndex(int index){
-        cart[index].setUncommitedQuantity(cart[index].getUncommitedQuantity()+1);
+        Product product = cart[index];
+        product.setUncommitedQuantity(product.getUncommitedQuantity()+1);
         for(int i =index; i<cartIndex;i++){
             cart[i]=cart[i+1];
         }
@@ -55,7 +61,8 @@ public class User {
     }
     public void release(){
         for(int i=0; i<cartIndex;i++){
-            cart[i].setUncommitedQuantity(cart[i].getQuantity());
+            Product product = cart[i];
+            product.setUncommitedQuantity(product.getQuantity());
         }
         cartIndex=0;
     }

@@ -21,7 +21,7 @@ public class Shop {
     public void run(User user){
         int command;
         do {
-            System.out.println("1) show product list , 2) add to cart , 3) remove from cart , 4) show cart detail 5) show cart total fee 6) sumbit purchase 7) log out ");
+            System.out.println("1)show product list 2)add to cart 3)remove from cart 4)show cart detail 5)show cart total fee 6)show credit 7)add credit 8)sumbit purchase 9)log out");
             command=sc.getInt();
             switch(command){
                 case 1:
@@ -40,9 +40,15 @@ public class Shop {
                     user.printTotalFee();
                     break;
                 case 6:
-                    user.commit();
+                    System.out.println("user's credit is: " + user.getBalance());
                     break;
                 case 7:
+                    addBalance(user);
+                    break;
+                case 8:
+                    user.commit();
+                    break;
+                case 9:
                     System.out.println("logging out...");
                     user.release();
                     break;
@@ -50,7 +56,12 @@ public class Shop {
                     System.out.println("invalid command!");
 
             }
-        }while(command!=7);
+        }while(command!=9);
+    }
+
+    private void addBalance(User user) {
+        System.out.println("how much do you want to add?");
+        user.addBalance(sc.getInt());
     }
 
 
